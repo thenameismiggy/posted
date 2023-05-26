@@ -32,6 +32,6 @@
     "prettier": "^2.8.8"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "npm run write"
   }
 }
