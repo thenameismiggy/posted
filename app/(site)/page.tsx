@@ -1,9 +1,14 @@
-import Image from 'next/image'
+'use client'
 
-export default function Home() {
+import { useSession } from 'next-auth/react'
+
+const Home = () => {
+  const session = useSession()
+  console.log(session)
+
   return (
-    <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 bg-gray-100">
-      Hello
-    </div>
+    <>{session?.status === 'authenticated' ? 'logged in' : 'not logged in'}</>
   )
 }
+
+export default Home
