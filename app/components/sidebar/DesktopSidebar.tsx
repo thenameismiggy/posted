@@ -2,7 +2,7 @@
 
 import useRoutes from '@/app/hooks/useRoutes'
 import { User } from '@prisma/client'
-import { useSession } from 'next-auth/react'
+import Avatar from '../Avatar'
 import DesktopItem from './DesktopItem'
 
 interface DesktopSidebarProps {
@@ -11,13 +11,12 @@ interface DesktopSidebarProps {
 
 const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
   const routes = useRoutes()
-  const session = useSession()
 
   return (
-    <div className="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-40 lg:w-16 xl:px-6 lg:overflow-y-auto lg:bg-slate-800 lg:border-slate-800 lg:border-r-[1px] lg:pb-4 lg:flex lg:flex-col justify-between">
+    <div className="hidden lg:w-16 xl:px-6 lg:overflow-y-auto lg:bg-slate-800 lg:border-slate-800 lg:border-r-[1px] lg:pb-4 lg:flex lg:flex-col justify-between">
       <nav className="mt-4 flex flex-col justify-between">
         <ul role="list" className="flex flex-col items-center space-y-2">
-          {session?.status === 'authenticated'
+          {currentUser !== null
             ? routes
                 .filter((item) => item.visibility !== 'loggedOut')
                 .map((item) => (
@@ -43,6 +42,11 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
                   />
                 ))}
         </ul>
+      </nav>
+      <nav className="mt-4 flex flex-col justify-between items-center">
+        <div className="cursor-pointer">
+          <Avatar user={currentUser} />
+        </div>
       </nav>
     </div>
   )

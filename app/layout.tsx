@@ -1,3 +1,4 @@
+import ChatList from './components/ChatList'
 import Sidebar from './components/sidebar/Sidebar'
 import AuthContext from './context/AuthContext'
 import ToasterContext from './context/ToasterContext'
@@ -14,12 +15,12 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <AuthContext>
           <ToasterContext />
-          {/* @ts-expect-error Server Component */}
-          <Sidebar>
-            <div className="flex min-h-full flex-col py-12 sm:px-6 lg:px-8 bg-slate-700 text-neutral-200">
-              {children}
-            </div>
-          </Sidebar>
+          <div className="flex min-h-full flex-row bg-slate-700 text-neutral-200">
+            {/* @ts-expect-error Server Component */}
+            <Sidebar />
+            {children}
+            <ChatList />
+          </div>
         </AuthContext>
       </body>
     </html>

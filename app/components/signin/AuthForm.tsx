@@ -9,7 +9,7 @@ import { BsFacebook, BsGoogle } from 'react-icons/bs'
 
 import { toast } from 'react-hot-toast'
 import Button from '../Button'
-import Input from '../inputs/Input'
+import AuthInput from '../inputs/AuthInput'
 import AuthSocialButton from './AuthSocialButton'
 
 type Variant = 'LOGIN' | 'REGISTER'
@@ -110,7 +110,7 @@ const AuthForm = () => {
       <div className="bg-slate-800 px-4 py-8 shadow sm:rounded-md sm:px-10">
         <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === 'REGISTER' && (
-            <Input
+            <AuthInput
               id="name"
               label="NAME"
               register={register}
@@ -118,7 +118,7 @@ const AuthForm = () => {
               disabled={isLoading}
             />
           )}
-          <Input
+          <AuthInput
             id="email"
             label="EMAIL ADDRESS"
             type="email"
@@ -126,7 +126,7 @@ const AuthForm = () => {
             errors={errors}
             disabled={isLoading}
           />
-          <Input
+          <AuthInput
             id="password"
             label="PASSWORD"
             type="password"
