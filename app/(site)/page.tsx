@@ -1,7 +1,12 @@
-'use client'
+import CreatePost from '../components/inputs/CreatePost'
 
 const Home = async () => {
-  return <></>
+  return (
+    <>
+      {/* @ts-expect-error Server Component */}
+      <CreatePost />
+    </>
+  )
 }
 
 export default Home

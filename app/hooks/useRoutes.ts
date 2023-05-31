@@ -5,6 +5,7 @@ import { HiMail } from 'react-icons/hi'
 import {
   HiArrowLeftOnRectangle,
   HiArrowRightOnRectangle,
+  HiBell,
   HiHome,
   HiUsers,
 } from 'react-icons/hi2'
@@ -32,6 +33,13 @@ const useRoutes = () => {
         href: '/messages',
         icon: HiMail,
         active: pathname === '/messages',
+        visibility: 'loggedIn',
+      },
+      {
+        label: 'Notifications',
+        href: '/notifications',
+        icon: HiBell,
+        active: pathname === '/notifications',
         visibility: 'loggedIn',
       },
       {

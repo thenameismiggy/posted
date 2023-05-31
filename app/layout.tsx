@@ -1,4 +1,3 @@
-import ChatList from './components/ChatList'
 import Sidebar from './components/sidebar/Sidebar'
 import AuthContext from './context/AuthContext'
 import ToasterContext from './context/ToasterContext'
@@ -19,7 +18,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             {/* @ts-expect-error Server Component */}
             <Sidebar />
             {children}
-            <ChatList />
           </div>
         </AuthContext>
       </body>
